@@ -64,9 +64,9 @@ export class CentripetalEngine {
     
     // Poles are max distance 2.0 away from opposite pole
     const supranationalism = this.inverseDistanceValue(distances.north, 2.0);
-    const communitarianism = this.inverseDistanceValue(distances.south, 2.0);
+    const anarchism = this.inverseDistanceValue(distances.south, 2.0);
     const nationalism = this.inverseDistanceValue(distances.east, 2.0);
-    const anarchism = this.inverseDistanceValue(distances.west, 2.0);
+    const communitarianism = this.inverseDistanceValue(distances.west, 2.0);
 
     // Authoritarianism is mathematically pulled by both the Center and the North Pole.
     // This ensures that moving towards Supranationalism/Centralization keeps the score high.
@@ -80,30 +80,29 @@ export class CentripetalEngine {
     // Bureaucratic Oversight: High near Center, slightly pulled by North
     const bureaucraticOversight = (authoritarianism * 0.7) + (supranationalism * 0.3);
 
-    // Market Deregulation: Pulled heavily by Anarchism (West) and slightly by Nationalism (East) depending on context, let's say West
+    // Market Deregulation: Pulled heavily by South (Anarchism) and slightly by East (Nationalism)
     const marketDeregulation = (anarchism * 0.8) + (nationalism * 0.2);
 
-    // Social Conservatism: Pulled by Communitarianism (South) and Nationalism (East)
+    // Social Conservatism: Pulled by West (Communitarianism) and East (Nationalism)
     const socialConservatism = (communitarianism * 0.5) + (nationalism * 0.5);
 
-    // Wealth Redistribution: Pulled by Supranationalism (North) and Communitarianism (South)? 
-    // Usually more central/supranational. Let's make it North + Center.
-    const wealthRedistribution = (supranationalism * 0.5) + (authoritarianism * 0.5);
+    // Wealth Redistribution: Pulled by West (Communitarianism) and North (Supranationalism)
+    const wealthRedistribution = (supranationalism * 0.5) + (communitarianism * 0.5);
 
-    // Military Intervention: High near Nationalism (East) and Center
+    // Military Intervention: High near East (Nationalism) and Center
     const militaryIntervention = (nationalism * 0.6) + (authoritarianism * 0.4);
 
-    // Personal Privacy: Purely inversely proportional to Authoritarianism, max at Perimeter
+    // Personal Privacy: Purely inversely proportional to Authoritarianism, max at South (Anarchism)
     const personalPrivacy = 100 - authoritarianism;
 
-    // Religious Influence: Pulled by South (Communitarianism) and East (Nationalism)
+    // Religious Influence: Pulled by West (Communitarianism) and East (Nationalism)
     const religiousInfluence = (communitarianism * 0.6) + (nationalism * 0.4);
 
-    // Border Control: Pulled strictly by Nationalism (East) and Center
+    // Border Control: Pulled heavily by East (Nationalism) and Center
     const borderControl = (nationalism * 0.7) + (authoritarianism * 0.3);
 
-    // Environmental Regulation: Pulled by North (Supranationalism) and Center
-    const environmentalRegulation = (supranationalism * 0.7) + (authoritarianism * 0.3);
+    // Environmental Regulation: Pulled by North (Supranationalism) and West (Communitarianism)
+    const environmentalRegulation = (supranationalism * 0.7) + (communitarianism * 0.3);
 
     return {
       authoritarianism,

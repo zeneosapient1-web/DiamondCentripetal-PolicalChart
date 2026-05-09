@@ -2,11 +2,11 @@
   --background: #000000;
   --foreground: #ffffff;
   
-  --neon-purple: #b026ff;
-  --neon-green: #39ff14;
-  --neon-red: #ff073a;
-  --neon-blue: #00ffff;
-  --neon-white: #ffffff;
+  --color-supranationalism: #b026ff;
+  --color-anarchism: #39ff14;
+  --color-nationalism: #0088ff;
+  --color-communitarianism: #ff073a;
+  --color-white: #ffffff;
   
   --panel-bg: rgba(15, 15, 20, 0.85);
   --panel-border: rgba(255, 255, 255, 0.1);

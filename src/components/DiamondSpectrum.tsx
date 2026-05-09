@@ -129,23 +129,23 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
           </radialGradient>
           
           <radialGradient id="gradNorth" cx={CENTER} cy={CENTER - RADIUS} r={RADIUS * 1.2} gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="var(--neon-purple)" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="var(--neon-purple)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-supranationalism)" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="var(--color-supranationalism)" stopOpacity="0" />
           </radialGradient>
           
           <radialGradient id="gradSouth" cx={CENTER} cy={CENTER + RADIUS} r={RADIUS * 1.2} gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="var(--neon-green)" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="var(--neon-green)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-anarchism)" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="var(--color-anarchism)" stopOpacity="0" />
           </radialGradient>
           
           <radialGradient id="gradEast" cx={CENTER + RADIUS} cy={CENTER} r={RADIUS * 1.2} gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="var(--neon-blue)" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="var(--neon-blue)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-nationalism)" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="var(--color-nationalism)" stopOpacity="0" />
           </radialGradient>
           
           <radialGradient id="gradWest" cx={CENTER - RADIUS} cy={CENTER} r={RADIUS * 1.2} gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="var(--neon-red)" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="var(--neon-red)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-communitarianism)" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="var(--color-communitarianism)" stopOpacity="0" />
           </radialGradient>
         </defs>
         
@@ -172,20 +172,20 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
 
         {/* Labels & Vertices */}
         {/* North */}
-        <circle cx={CENTER} cy={CENTER - RADIUS} r="6" fill="var(--neon-purple)" />
-        <text x={CENTER} y={CENTER - RADIUS - 30} fill="var(--neon-purple)" textAnchor="middle" fontSize="12" fontWeight="bold" letterSpacing="2">SUPRANATIONALISM</text>
+        <circle cx={CENTER} cy={CENTER - RADIUS} r="6" fill="var(--color-supranationalism)" />
+        <text x={CENTER} y={CENTER - RADIUS - 30} fill="var(--color-supranationalism)" textAnchor="middle" fontSize="12" fontWeight="bold" letterSpacing="2">SUPRANATIONALISM</text>
         
-        {/* South */}
-        <circle cx={CENTER} cy={CENTER + RADIUS} r="6" fill="var(--neon-green)" />
-        <text x={CENTER} y={CENTER + RADIUS + 40} fill="var(--neon-green)" textAnchor="middle" fontSize="12" fontWeight="bold" letterSpacing="2">COMMUNITARIANISM</text>
+        {/* South (Now Anarchism) */}
+        <circle cx={CENTER} cy={CENTER + RADIUS} r="6" fill="var(--color-anarchism)" />
+        <text x={CENTER} y={CENTER + RADIUS + 40} fill="var(--color-anarchism)" textAnchor="middle" fontSize="12" fontWeight="bold" letterSpacing="2">ANARCHISM</text>
         
         {/* East */}
-        <circle cx={CENTER + RADIUS} cy={CENTER} r="6" fill="var(--neon-blue)" />
-        <text x={CENTER + RADIUS + 30} y={CENTER + 4} fill="var(--neon-blue)" textAnchor="start" fontSize="12" fontWeight="bold" letterSpacing="2">NATIONALISM</text>
+        <circle cx={CENTER + RADIUS} cy={CENTER} r="6" fill="var(--color-nationalism)" />
+        <text x={CENTER + RADIUS + 30} y={CENTER + 4} fill="var(--color-nationalism)" textAnchor="start" fontSize="12" fontWeight="bold" letterSpacing="2">NATIONALISM</text>
         
-        {/* West */}
-        <circle cx={CENTER - RADIUS} cy={CENTER} r="6" fill="var(--neon-red)" />
-        <text x={CENTER - RADIUS - 30} y={CENTER + 4} fill="var(--neon-red)" textAnchor="end" fontSize="12" fontWeight="bold" letterSpacing="2">ANARCHISM</text>
+        {/* West (Now Communitarianism) */}
+        <circle cx={CENTER - RADIUS} cy={CENTER} r="6" fill="var(--color-communitarianism)" />
+        <text x={CENTER - RADIUS - 30} y={CENTER + 4} fill="var(--color-communitarianism)" textAnchor="end" fontSize="12" fontWeight="bold" letterSpacing="2">COMMUNITARIANISM</text>
 
         {/* Center Label */}
         <circle cx={CENTER} cy={CENTER} r="6" fill="#ffffff" />

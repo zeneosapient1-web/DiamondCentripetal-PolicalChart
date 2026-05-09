@@ -17,10 +17,10 @@ export default function Sidebar({ data }: Props) {
     // Convert DataMatrix to array for D3
     const dataArray = [
       { key: "Authoritarianism", value: data.authoritarianism, color: "#ffffff" },
-      { key: "Supranationalism", value: data.supranationalism, color: "var(--neon-purple)" },
-      { key: "Communitarianism", value: data.communitarianism, color: "var(--neon-green)" },
-      { key: "Nationalism", value: data.nationalism, color: "var(--neon-blue)" },
-      { key: "Anarchism", value: data.anarchism, color: "var(--neon-red)" },
+      { key: "Supranationalism", value: data.supranationalism, color: "var(--color-supranationalism)" },
+      { key: "Anarchism", value: data.anarchism, color: "var(--color-anarchism)" },
+      { key: "Nationalism", value: data.nationalism, color: "var(--color-nationalism)" },
+      { key: "Communitarianism", value: data.communitarianism, color: "var(--color-communitarianism)" },
       { key: "Surveillance", value: data.surveillance, color: "#ff9900" },
       { key: "Bureaucratic Oversight", value: data.bureaucraticOversight, color: "#ff9900" },
       { key: "Market Deregulation", value: data.marketDeregulation, color: "#ff9900" },
