@@ -28,8 +28,8 @@ export default function Home() {
 
         {/* Title or ambient text */}
         <div style={{ marginTop: "40px", textAlign: "center", color: "rgba(255,255,255,0.4)", letterSpacing: "2px" }}>
-          <h1 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "white", letterSpacing: "0.1em", margin: 0 }}>DIAMOND CENTRIPETAL</h1>
-          <p style={{ fontSize: "0.875rem", margin: "5px 0 0 0" }}>POLITICAL SPECTRUM SIMULATOR</p>
+          <h1 style={{ fontSize: "1.25rem", fontWeight: "bold", color: "white", letterSpacing: "0.1em", margin: 0 }}>DIAMOND CENTRIPETAL CHART</h1>
+          <p style={{ fontSize: "0.875rem", margin: "5px 0 0 0" }}>POLITICAL SPECTRUM VISUALISER</p>
         </div>
       </div>
     </main>
