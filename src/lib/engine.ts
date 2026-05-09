@@ -59,15 +59,19 @@ export class CentripetalEngine {
   public static calculateMatrix(coord: Coordinate): DataMatrix {
     const distances = this.calculateDistances(coord);
     
-    // Core Poles (Inverse radial)
-    // Center is max radius 1.0 from boundary
-    const authoritarianism = this.inverseDistanceValue(distances.center, 1.0); 
+    // Calculate Center Pull first
+    const centerPull = this.inverseDistanceValue(distances.center, 1.0); 
     
-    // Other poles are max distance 2.0 away from opposite pole
+    // Poles are max distance 2.0 away from opposite pole
     const supranationalism = this.inverseDistanceValue(distances.north, 2.0);
     const communitarianism = this.inverseDistanceValue(distances.south, 2.0);
     const nationalism = this.inverseDistanceValue(distances.east, 2.0);
     const anarchism = this.inverseDistanceValue(distances.west, 2.0);
+
+    // Authoritarianism is mathematically pulled by both the Center and the North Pole.
+    // This ensures that moving towards Supranationalism/Centralization keeps the score high.
+    // We combine the gravitational pulls and cap at 100.
+    const authoritarianism = Math.min(100, centerPull + (supranationalism * 0.8));
 
     // Complex Indicators (Mathematical pull)
     // Surveillance: High when close to Center AND North Pole (Authoritarian Globalism)
