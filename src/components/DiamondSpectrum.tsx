@@ -16,9 +16,9 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
   const currentPos = useRef<Coordinate>({ x: 0, y: 0 });
   const requestRef = useRef<number>(0);
 
-  const SIZE = 800;
+  const SIZE = 1000;
   const CENTER = SIZE / 2;
-  const RADIUS = SIZE / 2 - 160; // 160px padding for labels
+  const RADIUS = 300; // 200px padding for labels
   
   // Coordinate mapping: Screen (pixels) <-> Math (-1 to 1)
   const screenToMath = (sx: number, sy: number): Coordinate => {
