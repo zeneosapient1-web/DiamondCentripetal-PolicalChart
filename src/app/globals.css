@@ -63,3 +63,11 @@ a {
 .h-screen { height: 100vh; }
 .relative { position: relative; }
 .absolute { position: absolute; }
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+}

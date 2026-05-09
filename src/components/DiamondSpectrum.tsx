@@ -44,8 +44,9 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const sx = e.clientX - rect.left;
-    const sy = e.clientY - rect.top;
+    const scale = SIZE / rect.width;
+    const sx = (e.clientX - rect.left) * scale;
+    const sy = (e.clientY - rect.top) * scale;
     
     let { x, y } = screenToMath(sx, sy);
     
@@ -115,13 +116,32 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
 
   return (
     <div 
-      className="relative" 
-      style={{ width: SIZE, height: SIZE, cursor: "crosshair" }}
+      className="relative w-full" 
+      style={{ maxWidth: `${SIZE}px`, aspectRatio: '1/1', cursor: "crosshair", margin: "0 auto" }}
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      onTouchMove={(e) => {
+        // Touch support for mobile
+        if (!containerRef.current) return;
+        const touch = e.touches[0];
+        const rect = containerRef.current.getBoundingClientRect();
+        const scale = SIZE / rect.width;
+        const sx = (touch.clientX - rect.left) * scale;
+        const sy = (touch.clientY - rect.top) * scale;
+        
+        let { x, y } = screenToMath(sx, sy);
+        if (!isInsideDiamond(x, y)) {
+          const absSum = Math.abs(x) + Math.abs(y);
+          if (absSum > 0) {
+            x = x / absSum;
+            y = y / absSum;
+          }
+        }
+        targetPos.current = { x, y };
+      }}
     >
       {/* SVG Background Layer */}
-      <svg className="absolute top-0 left-0" width={SIZE} height={SIZE}>
+      <svg className="absolute top-0 left-0 w-full h-full" viewBox={`0 0 ${SIZE} ${SIZE}`}>
         <defs>
           <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.2" />
@@ -228,7 +248,7 @@ export default function DiamondSpectrum({ onCoordinateChange }: Props) {
 
       {/* HTML5 Canvas Glow Layer */}
       <canvas 
-        className="absolute top-0 left-0 pointer-events-none" 
+        className="absolute top-0 left-0 w-full h-full pointer-events-none" 
         width={SIZE} 
         height={SIZE} 
         ref={canvasRef}

@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="w-full h-screen bg-black overflow-hidden relative">
       {/* Left side: Sidebar Data Matrix */}
-      <div className="absolute top-0 left-0 w-[400px] h-full z-10">
+      <div className="absolute top-0 left-0 h-full z-10 desktop-only">
         <Sidebar data={dataMatrix} />
       </div>
 
